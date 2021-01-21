@@ -49,7 +49,8 @@ export const webVitals = (metric: NextWebVitalsMetric) => {
         metric.label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
       eventAction: name,
       eventValue: Math.round(
-        name === 'CLS' ? metric.value * 1000 : metric.value
+        // name === 'CLS' ? metric.value * 1000 : metric.value
+        metric.value
       ), // values must be integers
       eventLabel: metric.id, // id unique to current page load
       nonInteraction: true, // avoids affecting bounce rate.
