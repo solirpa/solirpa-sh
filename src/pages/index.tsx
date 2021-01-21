@@ -1,16 +1,19 @@
-import { NextSeo } from "next-seo";
-import { GetStaticProps } from "next";
-import { Hero } from "../components/sections/hero";
-import { Work } from "../components/sections/work";
-import { Footer } from "../components/sections/footer";
-import { Achievements } from "../components/sections/achievements";
-import { GitHubActivity } from "../components/sections/github-activity";
-import { Post } from "../types/blog";
-import getTableData from "../core/notion/getTableData";
-import { fetchRepos, Repo } from "../core/github";
-import { Project } from "../types/project";
-import { getOpenGraphImage } from "../core/og-image";
-import { BLOG_INDEX_ID, PROJECT_INDEX_ID } from "../core/notion/server-constants"
+import { NextSeo } from 'next-seo';
+import { GetStaticProps } from 'next';
+import { Hero } from '../components/sections/hero';
+import { Work } from '../components/sections/work';
+import { Footer } from '../components/sections/footer';
+import { Achievements } from '../components/sections/achievements';
+import { GitHubActivity } from '../components/sections/github-activity';
+import { Post } from '../types/blog';
+import getTableData from '../core/notion/getTableData';
+import { fetchRepos, Repo } from '../core/github';
+import { Project } from '../types/project';
+import { getOpenGraphImage } from '../core/og-image';
+import {
+  BLOG_INDEX_ID,
+  PROJECT_INDEX_ID,
+} from '../core/notion/server-constants';
 import { config } from '../../config';
 
 interface AppProps {
@@ -53,13 +56,13 @@ const Home = ({ repos, projects }: AppProps) => (
   <>
     <NextSeo
       title={`${config.name} - ${config.subtitle}`}
-      titleTemplate={"%s"}
+      titleTemplate={'%s'}
       openGraph={{
         images: [getOpenGraphImage(config.name)],
       }}
       twitter={{
-        handle: "@solirpa7",
-        cardType: "summary_large_image",
+        handle: '@solirpa7',
+        cardType: 'summary_large_image',
       }}
       description="Hey I'm Solirpa! I design and build digital products. Illustrating and film making are also my passion."
     />

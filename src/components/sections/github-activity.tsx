@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Repo } from "../../core/github";
-import { config } from "../../../config";
+import { Repo } from '../../core/github';
+import { config } from '../../../config';
 
 const RepoList: React.FC<{
   title: string;

@@ -1,6 +1,6 @@
-import React from "react";
-import { ProfileImage } from "./profile-image";
-import { config } from "../../../config";
+import React from 'react';
+import { ProfileImage } from './profile-image';
+import { config } from '../../../config';
 
 export const AuthorFooter = () => (
   <div className="flex space-x-3 items-center py-6 my-2 border-t">

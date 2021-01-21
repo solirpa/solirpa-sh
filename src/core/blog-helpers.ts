@@ -29,8 +29,8 @@ export const normalizeSlug = (slug) => {
   return startingSlash || endingSlash ? normalizeSlug(slug) : slug;
 };
 
-export const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
+export const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
 });

@@ -1,4 +1,4 @@
-import { BlockMapType, MapImageUrl } from "react-notion";
+import { BlockMapType, MapImageUrl } from 'react-notion';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export function setHeaders(req: NextApiRequest, res: NextApiResponse): boolean {
@@ -31,31 +31,30 @@ export function handleError(res: NextApiResponse, error: string | Error) {
 }
 
 export const toNotionRendererBlockMap = (blocks) => {
-  const tblocks = { };
+  const tblocks = {};
 
   for (let block of blocks) {
     tblocks[block.value.id] = block;
   }
 
   return tblocks;
-}
-
+};
 
 export const toNotionImageUrl: MapImageUrl = (url, block) => {
   const imageUrl = new URL(
-    url.startsWith("https://www.notion.so")
+    url.startsWith('https://www.notion.so')
       ? url
       : `https://www.notion.so${
-          url.startsWith("/image") ? url : `/image/${encodeURIComponent(url)}`
+          url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
         }`
   );
 
   if (block) {
     const table =
-      block.value.parent_table === "space" ? "block" : block.value.parent_table;
-    imageUrl.searchParams.set("table", table);
-    imageUrl.searchParams.set("id", block.value.id);
-    imageUrl.searchParams.set("cache", "v2");
+      block.value.parent_table === 'space' ? 'block' : block.value.parent_table;
+    imageUrl.searchParams.set('table', table);
+    imageUrl.searchParams.set('id', block.value.id);
+    imageUrl.searchParams.set('cache', 'v2');
   }
 
   return imageUrl.toString();

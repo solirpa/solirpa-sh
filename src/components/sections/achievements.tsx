@@ -1,30 +1,30 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Briefcase from "../../assets/svgs/briefcase.svg";
-import Lock from "../../assets/svgs/lock.svg";
-import Certificate from "../../assets/svgs/certificate.svg";
-import Trophy from "../../assets/svgs/trophy.svg";
+import Briefcase from '../../assets/svgs/briefcase.svg';
+import Lock from '../../assets/svgs/lock.svg';
+import Certificate from '../../assets/svgs/certificate.svg';
+import Trophy from '../../assets/svgs/trophy.svg';
 
-import { Timestamp } from "../base/timestamp";
+import { Timestamp } from '../base/timestamp';
 import {
   Achievement as AchievementProps,
   AchievementType,
   Achievement,
-} from "../../types/achievement";
-import { NotionRenderer } from "react-notion";
+} from '../../types/achievement';
+import { NotionRenderer } from 'react-notion';
 
 const AchievementIcon: React.FC<{
   type: AchievementType;
   className?: string;
 }> = ({ type, ...props }) => {
   switch (type) {
-    case "award":
+    case 'award':
       return <Trophy {...props} />;
-    case "education":
+    case 'education':
       return <Certificate {...props} />;
-    case "work":
+    case 'work':
       return <Briefcase {...props} />;
-    case "security":
+    case 'security':
       return <Lock {...props} />;
   }
 };
@@ -39,7 +39,7 @@ const AchievementRow: React.FC<AchievementProps> = ({
   <div
     className="flex items-center my-8 animate-enter achievement-notion"
     style={{
-      animation: "enter 300ms ease-out",
+      animation: 'enter 300ms ease-out',
     }}
   >
     <AchievementIcon className="w-10 md:w-24" type={type} />
@@ -69,7 +69,7 @@ export const Achievements: React.FC<{ achievements: Achievement[] }> = ({
         <div className="text-2xl text-gray-600">Things I Have Achieved</div>
         <div className="my-4">
           {achievements
-            .filter(a => showMore || a.highlight)
+            .filter((a) => showMore || a.highlight)
             .map((a, i) => (
               <AchievementRow key={i} {...a} />
             ))}
@@ -79,7 +79,7 @@ export const Achievements: React.FC<{ achievements: Achievement[] }> = ({
             className="px-2 py-1 text-gray-800 border border-gray-300 rounded shadow-xs"
             onClick={() => setShowMore(!showMore)}
           >
-            {showMore ? "Show less ↑" : "Show more ↓"}
+            {showMore ? 'Show less ↑' : 'Show more ↓'}
           </button>
         </div>
       </div>

@@ -1,6 +1,6 @@
-import { BlockMapType } from "react-notion";
+import { BlockMapType } from 'react-notion';
 
-export type AchievementType = "award" | "work" | "education" | "security";
+export type AchievementType = 'award' | 'work' | 'education' | 'security';
 
 export interface Achievement {
   id: string;

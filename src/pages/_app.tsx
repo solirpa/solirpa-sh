@@ -1,7 +1,6 @@
-
-import "../assets/styles/tailwind.css";
-import "../assets/styles/prism.css";
-import "react-notion/src/styles.css";
+import '../assets/styles/tailwind.css';
+import '../assets/styles/prism.css';
+import 'react-notion/src/styles.css';
 
 import { AppProps, NextWebVitalsMetric } from 'next/app';
 // this function will report web vitals

@@ -1,8 +1,8 @@
-import React from "react";
-import { ProfileImage } from "../components/base/profile-image";
-import Logo from "../assets/svgs/logo.svg";
+import React from 'react';
+import { ProfileImage } from '../components/base/profile-image';
+import Logo from '../assets/svgs/logo.svg';
 
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 const OGImage: React.FC = () => {
   const router = useRouter();

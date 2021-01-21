@@ -1,22 +1,21 @@
-import { NextSeo } from "next-seo";
-import { GetStaticProps } from "next";
-import { Blog } from "../../components/sections/blog";
-import { Footer } from "../../components/sections/footer";
-import { Post } from "../../types/blog";
-import getTableData from "../../core/notion/getTableData";
-import { Nav } from "../../components/sections/nav";
-import { config } from "../../../config";
-import { BLOG_INDEX_ID } from "../../core/notion/server-constants";
+import { NextSeo } from 'next-seo';
+import { GetStaticProps } from 'next';
+import { Blog } from '../../components/sections/blog';
+import { Footer } from '../../components/sections/footer';
+import { Post } from '../../types/blog';
+import getTableData from '../../core/notion/getTableData';
+import { Nav } from '../../components/sections/nav';
+import { config } from '../../../config';
+import { BLOG_INDEX_ID } from '../../core/notion/server-constants';
 
 interface BlogProps {
   posts: Post[];
 }
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => {
-
   const posts = await getTableData<Post>(BLOG_INDEX_ID, true);
   const filteredPosts = posts
-    .filter((post) => process.env.NODE_ENV === "development" || post.published)
+    .filter((post) => process.env.NODE_ENV === 'development' || post.published)
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 
   return {

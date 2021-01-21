@@ -1,5 +1,5 @@
 const QUANTITY = 5;
-const GRAPHQL_ENDPOINT = "https://api.github.com/graphql";
+const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
 
 export interface Repo {
   id: string;
@@ -53,9 +53,9 @@ query {
 }`;
 
   const res = await fetch(GRAPHQL_ENDPOINT, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${githubToken}`,
     },
     body: JSON.stringify({ query }),

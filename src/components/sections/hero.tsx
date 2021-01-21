@@ -1,6 +1,6 @@
-import React from "react";
-import { Nav } from "./nav";
-import { ProfileImage } from "../base/profile-image";
+import React from 'react';
+import { Nav } from './nav';
+import { ProfileImage } from '../base/profile-image';
 
 export const Hero: React.FC = () => (
   <section className="bg-gray-100">

@@ -1,22 +1,22 @@
-import React from "react";
-import clsx from "clsx";
-import { Project as ProjectData, ProjectType } from "../../types/project";
-import { toNotionImageUrl } from "../../core/notion/utils";
-import Link from "next/link";
+import React from 'react';
+import clsx from 'clsx';
+import { Project as ProjectData, ProjectType } from '../../types/project';
+import { toNotionImageUrl } from '../../core/notion/utils';
+import Link from 'next/link';
 
-import CodeIcon from "../../assets/svgs/code.svg";
-import DesignIcon from "../../assets/svgs/design.svg";
-import VideoIcon from "../../assets/svgs/video.svg";
+import CodeIcon from '../../assets/svgs/code.svg';
+import DesignIcon from '../../assets/svgs/design.svg';
+import VideoIcon from '../../assets/svgs/video.svg';
 
 const TypeBadge: React.FC<{ type: ProjectType; compact?: boolean }> = ({
   type,
   compact,
 }) => {
-  const tagClassName = "rounded-full px-3 flex items-center text-sm mr-1";
-  const iconClassName = "mr-1";
+  const tagClassName = 'rounded-full px-3 flex items-center text-sm mr-1';
+  const iconClassName = 'mr-1';
 
   switch (type) {
-    case "code":
+    case 'code':
       return compact ? (
         <CodeIcon className={iconClassName} aria-label="Code" />
       ) : (
@@ -24,7 +24,7 @@ const TypeBadge: React.FC<{ type: ProjectType; compact?: boolean }> = ({
           Code
         </div>
       );
-    case "design":
+    case 'design':
       return compact ? (
         <DesignIcon className={iconClassName} aria-label="Design" />
       ) : (
@@ -32,7 +32,7 @@ const TypeBadge: React.FC<{ type: ProjectType; compact?: boolean }> = ({
           Design
         </div>
       );
-    case "video":
+    case 'video':
       return compact ? (
         <VideoIcon className={iconClassName} aria-label="Video" />
       ) : (
@@ -51,9 +51,9 @@ export const Project: React.FC<
     <a
       aria-label={`${title} - Project`}
       className={clsx(
-        "focus group border bg-white rounded-md overflow-hidden flex flex-col",
-        "transform transition-transform ease-in-out duration-100 hover:border-gray-400",
-        featured && "shadow-sm hover:-translate-y-1 focus:-translate-y-1",
+        'focus group border bg-white rounded-md overflow-hidden flex flex-col',
+        'transform transition-transform ease-in-out duration-100 hover:border-gray-400',
+        featured && 'shadow-sm hover:-translate-y-1 focus:-translate-y-1',
         className
       )}
     >
@@ -61,7 +61,7 @@ export const Project: React.FC<
         <div className="pb-2/3 bg-gray-100 relative border-b overflow-hidden">
           {images && images[0] && (
             <img
-              className={clsx("absolute w-full h-full object-cover")}
+              className={clsx('absolute w-full h-full object-cover')}
               src={images[0].url}
               alt={title}
             />
@@ -74,13 +74,13 @@ export const Project: React.FC<
             {title}
           </div>
           <div className="text-s"></div>
-          <div className={clsx(!featured && "text-sm", "text-gray-700")}>
+          <div className={clsx(!featured && 'text-sm', 'text-gray-700')}>
             {preview}
           </div>
         </div>
         <div className="flex justify-between p-4">
           <div className="flex items-center">
-            {types.map(type => (
+            {types.map((type) => (
               <TypeBadge key={type} compact type={type} />
             ))}
           </div>
@@ -98,13 +98,13 @@ export const Work: React.FC<{
     <h1 className="text-4xl font-bold">Work</h1>
     <div className="text-2xl text-gray-600">Things I Have Made in the Past</div>
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-4">
-      {projects.slice(0, preview ? 3 : undefined).map(p => (
+      {projects.slice(0, preview ? 3 : undefined).map((p) => (
         <Project key={p.id} featured {...p} />
       ))}
     </div>
     {preview && (
       <div className="md:grid mt-4 grid-cols-2 sm:grid-cols-4 gap-4 ">
-        {projects.slice(3, 6).map(p => (
+        {projects.slice(3, 6).map((p) => (
           <Project key={p.id} className="hidden md:flex" {...p} />
         ))}
         <div className="flex flex-col items-center justify-center text-center py-4">

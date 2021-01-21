@@ -1,5 +1,5 @@
-import { Post } from "../types/blog";
-import { config } from "../../config";
+import { Post } from '../types/blog';
+import { config } from '../../config';
 
 const generateRssItem = (post: Post): string => `
 <item>
@@ -20,7 +20,7 @@ export const generateRss = (posts: Post[]): string => `
   <language>en</language>
   <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
   <atom:link href="https://april-zhh.cn/api/blog.xml" rel="self" type="application/rss+xml"/>
-  ${posts.map(generateRssItem).join("")}
+  ${posts.map(generateRssItem).join('')}
 </channel>
 </rss>
 `;

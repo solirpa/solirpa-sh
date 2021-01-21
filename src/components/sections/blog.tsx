@@ -1,6 +1,6 @@
-import { Post } from "../../types/blog";
-import Link from "next/link";
-import { dateFormatter } from "../../core/blog-helpers";
+import { Post } from '../../types/blog';
+import Link from 'next/link';
+import { dateFormatter } from '../../core/blog-helpers';
 
 interface BlogProps {
   posts: Post[];
@@ -17,7 +17,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
       </div>
 
       <ul>
-        {posts.map(post => (
+        {posts.map((post) => (
           <li key={post.id}>
             <Link href={`/blog/${post.slug}`}>
               <a className="my-2 py-4 px-4 -mx-4 hover:bg-gray-100 rounded-md block">

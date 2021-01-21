@@ -5,11 +5,13 @@ import queryCollection from './queryCollection';
 import getPageData from './getPageData';
 import { BlockType } from 'react-notion';
 
-
-export default async function getTableData<T>(tableId: any, isPosts = false): Promise<T[]> {
+export default async function getTableData<T>(
+  tableId: any,
+  isPosts = false
+): Promise<T[]> {
   const slugger = new Slugger();
   const tableBlocks = await getPageData(tableId);
-                                      
+
   const tableBlock = tableBlocks.find(
     (block: BlockType) => block.value.type === 'collection_view'
   );
@@ -47,11 +49,11 @@ export default async function getTableData<T>(tableId: any, isPosts = false): Pr
       }
 
       if (schema[key].name === 'types') {
-        val = val[0].split(",");
+        val = val[0].split(',');
       }
 
       if (schema[key].name === 'published') {
-        val = val[0] === "Yes" ? true : false;
+        val = val[0] === 'Yes' ? true : false;
       }
 
       // authors and blocks are centralized
@@ -59,17 +61,21 @@ export default async function getTableData<T>(tableId: any, isPosts = false): Pr
         const type = props[key][0][1][0];
 
         switch (type[0]) {
-          case 'a': {     // link
-            val = type[1];
+          case 'a':
+            {
+              // link
+              val = type[1];
 
-            if (schema[key].name === 'images') {
-              val = [{
-                name: props[key][0][0],
-                url: `/api/asset?assetUrl=${type[1]}&blockId=${entry.value.id}`,
-                rawUrl: type[1],
-              }]
+              if (schema[key].name === 'images') {
+                val = [
+                  {
+                    name: props[key][0][0],
+                    url: `/api/asset?assetUrl=${type[1]}&blockId=${entry.value.id}`,
+                    rawUrl: type[1],
+                  },
+                ];
+              }
             }
-          } 
             break;
           case 'u': // user
             val = props[key]

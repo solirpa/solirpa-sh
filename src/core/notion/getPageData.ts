@@ -8,7 +8,13 @@ export default async function getPageData(pageId: string) {
 
     for (let block of blocks) {
       if (block.value.type === 'toggle') {
-        const subData = await syncRecordValues({ requests: block.value.content.map(i => ({ table: "block", id: i, version: -1 })) });
+        const subData = await syncRecordValues({
+          requests: block.value.content.map((i) => ({
+            table: 'block',
+            id: i,
+            version: -1,
+          })),
+        });
         const subBlocks = values(subData.recordMap.block);
         blocks.push(...subBlocks);
       }
@@ -37,12 +43,8 @@ export function loadPageChunk({
   });
 }
 
-
-export function syncRecordValues({
-  requests = []
-}: any) {
+export function syncRecordValues({ requests = [] }: any) {
   return rpc('syncRecordValues', {
-    requests
+    requests,
   });
 }
- 

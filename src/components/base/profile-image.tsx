@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export const ProfileImage: React.FC<{
   size?: number;
@@ -8,12 +8,12 @@ export const ProfileImage: React.FC<{
     style={{
       width: size,
       height: size,
-      backgroundColor: "#FCC098",
+      backgroundColor: '#FCC098',
     }}
   >
     <Image
       className="rounded-full"
-      src={"/portrait.jpg"}
+      src={'/portrait.jpg'}
       alt="Portrait photo of me"
       height={size}
       quality={85}
@@ -23,7 +23,7 @@ export const ProfileImage: React.FC<{
       className="absolute rounded-full inset-0"
       style={{
         boxShadow:
-          "inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 2px rgba(255,255,255,0.2)",
+          'inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 0 0 2px rgba(255,255,255,0.2)',
       }}
     />
   </div>

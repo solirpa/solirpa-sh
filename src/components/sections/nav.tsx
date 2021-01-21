@@ -1,5 +1,5 @@
-import Logo from "../../assets/svgs/logo.svg";
-import Link from "next/link";
+import Logo from '../../assets/svgs/logo.svg';
+import Link from 'next/link';
 
 export const Nav: React.FC = () => (
   <nav className="flex justify-between items-center my-4 container">
