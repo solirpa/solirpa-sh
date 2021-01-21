@@ -70,7 +70,7 @@ export default async function getTableData<T>(
                 val = [
                   {
                     name: props[key][0][0],
-                    url: `/api/asset?assetUrl=${type[1]}&blockId=${entry.value.id}`,
+                    url: type[1].match('.amazonaws.com/secure.notion-static.com/') ? `/api/asset?assetUrl=${type[1]}&blockId=${entry.value.id}` : type[1],
                     rawUrl: type[1],
                   },
                 ];

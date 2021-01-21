@@ -1,8 +1,9 @@
-import { BlockMapType, BlockType } from 'react-notion';
 import rpc, { values } from './rpc';
 
 export default async function getPageData(pageId: string) {
   try {
+    if (!pageId) return [];
+
     const data = await loadPageChunk({ pageId });
     const blocks = values(data.recordMap.block);
 
