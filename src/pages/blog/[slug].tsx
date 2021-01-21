@@ -46,7 +46,6 @@ export const getStaticProps: GetStaticProps<
   }
 
   const blocks = await getPageData(post.id);
-  // console.log(JSON.stringify(blocks, null, 2))
 
   return {
     props: {

@@ -5,6 +5,7 @@ import { Footer } from '../../components/sections/footer';
 import { Nav } from '../../components/sections/nav';
 import { Project } from '../../types/project';
 import getTableData from '../../core/notion/getTableData';
+import { PROJECT_INDEX_ID } from "../../core/notion/server-constants";
 import { config } from '../../../config';
 
 interface AppProps {
@@ -12,11 +13,7 @@ interface AppProps {
 }
 
 export const getStaticProps: GetStaticProps<AppProps> = async () => {
-  const projects = await getTableData<Project>(
-    '09ec2ae5-13d6-4618-a863-fac701891206',
-    true
-  );
-  // console.log('projects', projects)
+  const projects = await getTableData<Project>(PROJECT_INDEX_ID, true);
 
   return {
     props: {
