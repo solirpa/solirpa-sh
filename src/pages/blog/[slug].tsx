@@ -1,12 +1,10 @@
 import React from 'react';
 import { NotionRenderer, BlockMapType } from 'react-notion';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { Nav } from '../../components/sections/nav';
 import { AuthorFooter } from '../../components/base/author-footer';
-import { Footer } from '../../components/sections/footer';
 import { Post } from '../../types/blog';
 import getTableData from '../../core/notion/getTableData';
 import getPageData from '../../core/notion/getPageData';
@@ -97,7 +95,6 @@ const Blog = ({ post, blocks }) => {
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />
       </div>
-      <Footer />
     </>
   );
 };

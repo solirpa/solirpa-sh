@@ -7,7 +7,6 @@ import { dateFormatter } from "../core/blog-helpers";
 import { Project } from "../types/project";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Nav } from "../components/sections/nav";
-import { Footer } from "../components/sections/footer";
 import { Project as ProjectCard } from "../components/sections/work";
 import getPageData from '../core/notion/getPageData';
 import getTableData from '../core/notion/getTableData';
@@ -124,7 +123,6 @@ const BlogPost: React.FC<PostProps> = ({
           ))}
         </ul>
       </div>
-      <Footer />
     </>
   );
 };

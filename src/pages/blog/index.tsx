@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { Blog } from '../../components/sections/blog';
-import { Footer } from '../../components/sections/footer';
 import { Post } from '../../types/blog';
 import getTableData from '../../core/notion/getTableData';
 import { Nav } from '../../components/sections/nav';
@@ -36,7 +35,6 @@ const BlogPage: React.FC<BlogProps> = ({ posts }: BlogProps) => (
     <div className="flex-1">
       <Blog posts={posts} />
     </div>
-    <Footer />
   </>
 );
 

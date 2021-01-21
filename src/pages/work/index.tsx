@@ -32,7 +32,6 @@ const WorkPage: React.FC<AppProps> = ({ projects }: AppProps) => (
     />
     {/* <pre>{JSON.stringify(projects, null, 2)}</pre> */}
     <Work projects={projects} />
-    <Footer />
   </>
 );
 
