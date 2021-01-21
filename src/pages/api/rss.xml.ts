@@ -18,7 +18,7 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
 
   const rss = generateRss(filteredPosts);
 
-  await writeFile("./public/rss.xml", rss);
+  await writeFile(process.env.NODE_ENV === "development" ? "./public/rss.xml" : "./rss.xml", rss);
 
   res.status(307)
   res.setHeader('Location', '/rss.xml')

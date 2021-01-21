@@ -71,7 +71,7 @@ const Blog = ({ post, blocks }) => {
           },
         }}
         twitter={{
-          handle: "@April541976208",
+          handle: "@solirpa7",
           cardType: "summary_large_image",
         }}
         canonical={`https://april-zhh.cn/blog/${post.slug}`}

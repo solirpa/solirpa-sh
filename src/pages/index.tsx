@@ -58,7 +58,7 @@ const Home = ({ repos, projects }: AppProps) => (
         images: [getOpenGraphImage(config.name)],
       }}
       twitter={{
-        handle: "@April541976208",
+        handle: "@solirpa7",
         cardType: "summary_large_image",
       }}
       description="Hey I'm Solirpa! I design and build digital products. Illustrating and film making are also my passion."

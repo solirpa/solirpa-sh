@@ -8,7 +8,7 @@ export const Hero: React.FC = () => (
     <div className="container">
       <div className="flex flex-col items-center my-16">
         <ProfileImage />
-        <h1 className="text-4xl font-bold mt-2">Hey, I'm Timo!</h1>
+        <h1 className="text-4xl font-bold mt-2">Hey, I'm Solirpa!</h1>
         <p className="text-2xl text-gray-700 text-center">
           I design and build apps, and everything that comes with it.
         </p>
@@ -16,7 +16,7 @@ export const Hero: React.FC = () => (
           <a
             className="mx-1 md:mx-2 py-1 px-2 rounded bg-blue-200 hover:bg-blue-300 text-blue-800"
             data-splitbee-event="Open Twitter"
-            href="https://twitter.com/April541976208"
+            href="https://twitter.com/solirpa7"
           >
             Twitter
           </a>
