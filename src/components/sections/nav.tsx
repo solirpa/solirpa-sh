@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const Nav: React.FC = () => (
   <nav className="flex justify-between items-center my-4 container">
     <Link href="/">
-      <a className="text-2xl">🏠</a>
+      <a className="text-4xl">🏠</a>
     </Link>
     <ul className="flex">
       {/* <li>
