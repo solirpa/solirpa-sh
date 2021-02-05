@@ -30,7 +30,7 @@ const BlogPage: React.FC<BlogProps> = ({ posts }: BlogProps) => (
     <Nav />
     <NextSeo
       title={`Blog ~ ${config.name}}`}
-      description="My personal blog about design, coding and everything else that is on my mind."
+      description="My personal blog about coding."
     />
     <div className="flex-1">
       <Blog posts={posts} />

@@ -28,7 +28,7 @@ const WorkPage: React.FC<AppProps> = ({ projects }: AppProps) => (
     <Nav />
     <NextSeo
       title={`Work ~ ${config.name}`}
-      description="A collection of some of my work I've made in the past. Including web apps, landing page designs and videos."
+      description="A collection of some of my work I've made in the past."
     />
     {/* <pre>{JSON.stringify(projects, null, 2)}</pre> */}
     <Work projects={projects} />

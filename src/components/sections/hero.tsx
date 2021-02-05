@@ -10,7 +10,7 @@ export const Hero: React.FC = () => (
         <ProfileImage />
         <h1 className="text-4xl font-bold mt-2">Hey, I'm Solirpa!</h1>
         <p className="text-2xl text-gray-700 text-center">
-          I design and build apps, and everything that comes with it.
+          踌躇满志磨洋工, 混吃等死一条鱼 
         </p>
         <div className="max-w-sm md:mx-auto my-6 -ml-2">
           <a

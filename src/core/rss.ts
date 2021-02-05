@@ -16,8 +16,8 @@ export const generateRss = (posts: Post[]): string => `
 <channel>
   <title>${config.name} – Blog</title>
   <link>https://april-zhh.cn/blog</link>
-  <description>Writing about coding, design and things I like</description>
-  <language>en</language>
+  <description>Writing about coding and things I like</description>
+  <language>zh</language>
   <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
   <atom:link href="https://april-zhh.cn/api/blog.xml" rel="self" type="application/rss+xml"/>
   ${posts.map(generateRssItem).join('')}
