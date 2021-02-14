@@ -16,6 +16,8 @@ export default async function getTableData<T>(
     (block: BlockType) => block.value.type === 'collection_view'
   );
 
+  if (!tableBlock) return;
+
   const { value } = tableBlock;
 
   let table: any = [];
