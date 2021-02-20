@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: posts
       .filter((row) => process.env.NODE_ENV === 'development' || row.published)
       .map((row) => `/blog/${row.slug}`),
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -55,6 +55,8 @@ export const getStaticProps: GetStaticProps<
 };
 
 const Blog = ({ post, blocks }) => {
+  if (!post) return null;
+
   return (
     <>
       <NextSeo
