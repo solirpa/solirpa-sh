@@ -15,7 +15,6 @@ export default async function rpc(fnName: string, body: any) {
     body: JSON.stringify(body),
   });
 
-  console.log(`${API_ENDPOINT}/${fnName}`, body)
   if (res.ok) {
     return res.json();
   } else {

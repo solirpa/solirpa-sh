@@ -30,7 +30,7 @@ export default async function getPageData(pageId: string) {
 
 export function loadPageChunk({
   pageId,
-  limit = 300,
+  limit = 100,
   cursor = { stack: [] },
   chunkNumber = 0,
   verticalColumns = false,
