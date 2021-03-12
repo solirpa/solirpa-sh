@@ -30,7 +30,7 @@ export const Hero: React.FC = () => (
           <a
             className="mx-1 md:mx-2 py-1 px-2 rounded bg-pink-200 hover:bg-pink-300 text-pink-800"
             data-splitbee-event="RSS"
-            href="/api/rss.xml"
+            href="/feed"
           >
             RSS
           </a>

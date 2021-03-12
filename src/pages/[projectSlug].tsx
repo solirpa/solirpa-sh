@@ -45,6 +45,7 @@ export const getStaticProps: GetStaticProps<
   const post = table.find((t) => t.slug === slug);
   const postIndex = publishedProjects.findIndex((t) => t.slug === slug);
 
+  console.log('post', post)
   const morePosts = [...publishedProjects, ...publishedProjects].slice(
     postIndex + 1,
     postIndex + 3
