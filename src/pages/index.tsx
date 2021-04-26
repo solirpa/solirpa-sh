@@ -26,7 +26,7 @@ interface AppProps {
 export const getStaticProps: GetStaticProps<AppProps> = async () => {
   const [
     posts,
-    projects,
+    projects = [],
     { contributedRepos, starredRepos },
   ] = await Promise.all([
     getTableData<Post>(BLOG_INDEX_ID),

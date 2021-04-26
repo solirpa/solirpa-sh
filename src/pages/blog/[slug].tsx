@@ -93,6 +93,14 @@ const Blog = ({ post, blocks }) => {
       </div>
       <article className="flex-1 w-full max-w-3xl px-4 mx-auto">
         <NotionRenderer blockMap={toNotionRendererBlockMap(blocks)} />
+        <div id="cusdis_thread"
+          data-host="https://cusdis.april-zhh.cn"
+          data-app-id="dcde78e0-e325-4787-ac74-261a7f9a8abf"
+          data-page-id="{{ PAGE_ID }}"
+          data-page-url="{{ PAGE_URL }}"
+          data-page-title="{{ PAGE_TITLE }}"
+        ></div>
+        <script async defer src="https://cusdis.april-zhh.cn/js/cusdis.es.js"></script>
       </article>
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />

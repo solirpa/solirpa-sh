@@ -325,7 +325,7 @@ async function main() {
 }
 
 async function getExistingexistingBlockId() {
-  const res = await fetch(`${API_ENDPOINT}/loadPageChunk`, {
+  const res = await fetch(`${API_ENDPOINT}/loadCachedPageChunk`, {
     method: 'POST',
     headers: {
       cookie: `token_v2=${NOTION_TOKEN}`,
