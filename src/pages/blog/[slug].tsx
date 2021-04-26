@@ -20,7 +20,7 @@ interface PostProps {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getTableData<Post>(BLOG_INDEX_ID, true);
+  const posts = [] = await getTableData<Post>(BLOG_INDEX_ID, true);
 
   return {
     paths: posts
@@ -96,15 +96,15 @@ const Blog = ({ post, blocks }) => {
         <div id="cusdis_thread"
           data-host="https://cusdis.april-zhh.cn"
           data-app-id="dcde78e0-e325-4787-ac74-261a7f9a8abf"
-          data-page-id="{{ PAGE_ID }}"
-          data-page-url="{{ PAGE_URL }}"
-          data-page-title="{{ PAGE_TITLE }}"
-        ></div>
-        <script async defer src="https://cusdis.april-zhh.cn/js/cusdis.es.js"></script>
+          data-page-id={`${post.id}`}
+          data-page-url={`/blog/${post.slug}`}
+          data-page-title={`${post.title}`}
+        />
       </article>
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />
       </div>
+      <script async defer src="https://cusdis.april-zhh.cn/js/cusdis.es.js"></script>
     </>
   );
 };
