@@ -93,20 +93,26 @@ const Blog = ({ post, blocks }) => {
       </div>
       <article className="flex-1 w-full max-w-3xl px-4 mx-auto">
         <NotionRenderer blockMap={toNotionRendererBlockMap(blocks)} />
-        <div id="cusdis_thread"
-          data-host="https://cusdis.april-zhh.cn"
-          data-app-id="dcde78e0-e325-4787-ac74-261a7f9a8abf"
-          data-page-id={`${post.id}`}
-          data-page-url={`/blog/${post.slug}`}
-          data-page-title={`${post.title}`}
-        />
+        <Comment post={post} />
       </article>
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />
       </div>
-      <script async defer src="https://cusdis.april-zhh.cn/js/cusdis.es.js"></script>
     </>
   );
 };
+
+const Comment = ({ post }) => (
+  <>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.april-zhh.cn"
+      data-app-id="6e6d5bd2-2e4c-46f4-8749-065858fa4f11"
+      data-page-id={`${post.id}`}
+      data-page-url={`/blog/${post.slug}`}
+      data-page-title={`${post.title}`}
+    ></div>
+    <script async src="https://cusdis.april-zhh.cn/js/cusdis.es.js"></script>
+  </>
+)
 
 export default Blog;
