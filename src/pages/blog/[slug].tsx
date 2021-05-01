@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NotionRenderer, BlockMapType } from 'react-notion';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
@@ -57,6 +57,16 @@ export const getStaticProps: GetStaticProps<
 const Blog = ({ post, blocks }) => {
   if (!post) return null;
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.setAttribute('async', ''); // Or defer or nothing
+    script.setAttribute('defer', ''); // Or defer or nothing
+    script.setAttribute('id', "script-id");
+    script.src = "https://cusdis.april-zhh.cn/js/cusdis.es.js";
+    const position = document.querySelector("body"); // Or any other location , example head
+    position.appendChild(script);
+  }, [])
+
   return (
     <>
       <NextSeo
@@ -93,7 +103,15 @@ const Blog = ({ post, blocks }) => {
       </div>
       <article className="flex-1 w-full max-w-3xl px-4 mx-auto">
         <NotionRenderer blockMap={toNotionRendererBlockMap(blocks)} />
-        <Comment post={post} />
+        <div
+          id="cusdis_thread"
+          className="py-2 my-4 border-t"
+          data-host="https://cusdis.april-zhh.cn"
+          data-app-id="6e6d5bd2-2e4c-46f4-8749-065858fa4f11"
+          data-page-id={`${post.id}`}
+          data-page-url={`/blog/${post.slug}`}
+          data-page-title={`${post.title}`}
+        />
       </article>
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />
@@ -101,18 +119,5 @@ const Blog = ({ post, blocks }) => {
     </>
   );
 };
-
-const Comment = ({ post }) => (
-  <>
-    <div id="cusdis_thread"
-      data-host="https://cusdis.april-zhh.cn"
-      data-app-id="6e6d5bd2-2e4c-46f4-8749-065858fa4f11"
-      data-page-id={`${post.id}`}
-      data-page-url={`/blog/${post.slug}`}
-      data-page-title={`${post.title}`}
-    ></div>
-    <script async src="https://cusdis.april-zhh.cn/js/cusdis.es.js"></script>
-  </>
-)
 
 export default Blog;
