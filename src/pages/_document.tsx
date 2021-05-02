@@ -6,7 +6,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>{trackingCode}</Head>
+        <Head>
+          {trackingCode}
+        </Head>
         <body>
           <Main />
           <NextScript />

@@ -6,7 +6,7 @@ import { AppProps, NextWebVitalsMetric } from 'next/app';
 
 import { Footer } from '../components/sections/footer';
 import { webVitals, trackPageChanges } from '../core/gtag'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 // this function will report web vitals
 export function reportWebVitals(metric: NextWebVitalsMetric) {

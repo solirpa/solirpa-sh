@@ -12,7 +12,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
       <div className="my-8">
         <h1 className="text-4xl font-bold md:text-center">Blog</h1>
         <h2 className="text-xl text-gray-700 md:text-center">
-          Writing about coding, design and things I like
+          Writing about coding and things I like
         </h2>
       </div>
 

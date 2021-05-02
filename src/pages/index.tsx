@@ -62,7 +62,7 @@ const Home = ({ repos, projects }: AppProps) => (
         handle: '@solirpa7',
         cardType: 'summary_large_image',
       }}
-      description="Hey I'm Solirpa! I design and build digital products. Illustrating and film making are also my passion."
+      description="Hey I'm Solirpa!"
     />
     <Hero />
     <Work projects={projects} preview />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NotionRenderer, BlockMapType } from 'react-notion';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import dynamic from 'next/dynamic'
 import { NextSeo } from 'next-seo';
 import { Nav } from '../../components/sections/nav';
 import { AuthorFooter } from '../../components/base/author-footer';
@@ -54,18 +55,15 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
+const Cusdis = dynamic(
+  () => {
+    return import('../../components/sections/cusdis')
+  },
+  { ssr: false }
+);
+
 const Blog = ({ post, blocks }) => {
   if (!post) return null;
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.setAttribute('async', ''); // Or defer or nothing
-    script.setAttribute('defer', ''); // Or defer or nothing
-    script.setAttribute('id', "script-id");
-    script.src = "https://cusdis.april-zhh.cn/js/cusdis.es.js";
-    const position = document.querySelector("body"); // Or any other location , example head
-    position.appendChild(script);
-  }, [])
 
   return (
     <>
@@ -103,15 +101,7 @@ const Blog = ({ post, blocks }) => {
       </div>
       <article className="flex-1 w-full max-w-3xl px-4 mx-auto">
         <NotionRenderer blockMap={toNotionRendererBlockMap(blocks)} />
-        <div
-          id="cusdis_thread"
-          className="py-2 my-4 border-t"
-          data-host="https://cusdis.april-zhh.cn"
-          data-app-id="6e6d5bd2-2e4c-46f4-8749-065858fa4f11"
-          data-page-id={`${post.id}`}
-          data-page-url={`/blog/${post.slug}`}
-          data-page-title={`${post.title}`}
-        />
+        <Cusdis id={post.id} url={`/blog/${post.slug}`} title={post.title} />
       </article>
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />
@@ -121,3 +111,4 @@ const Blog = ({ post, blocks }) => {
 };
 
 export default Blog;
+
