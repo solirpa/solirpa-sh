@@ -14,6 +14,7 @@ import { toNotionRendererBlockMap } from '../../core/notion/utils';
 import { getOpenGraphImage } from '../../core/og-image';
 import { BLOG_INDEX_ID } from '../../core/notion/server-constants';
 import { config } from '../../../config';
+import { ReactCusdis } from 'react-cusdis';
 
 interface PostProps {
   blocks: BlockMapType;
@@ -55,13 +56,6 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-const Cusdis = dynamic(
-  () => {
-    return import('../../components/sections/cusdis')
-  },
-  { ssr: false }
-);
-
 const Blog = ({ post, blocks }) => {
   if (!post) return null;
 
@@ -101,7 +95,17 @@ const Blog = ({ post, blocks }) => {
       </div>
       <article className="flex-1 w-full max-w-3xl px-4 mx-auto">
         <NotionRenderer blockMap={toNotionRendererBlockMap(blocks)} />
-        <Cusdis id={post.id} url={`/blog/${post.slug}`} title={post.title} />
+        <div className="py-2 my-4 border-t">
+          <ReactCusdis
+            attrs={{
+              host: 'https://cusdis.april-zhh.cn',
+              appId: '6e6d5bd2-2e4c-46f4-8749-065858fa4f11',
+              pageId: post.id,
+              pageTitle: post.title,
+              pageUrl: `/blog/${post.slug}`
+            }}
+          />
+        </div>
       </article>
       <div className="w-full max-w-3xl px-4 mx-auto my-8">
         <AuthorFooter />
